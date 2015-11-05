@@ -67,7 +67,15 @@ body {
     background-color: #ecf0f1;
 }
 
-.icon {
+
+.circle {
+position: relative;
+height: 150px;
+width: 150px;
+border-radius: 100px;
+}
+
+.circle .icon {
     position: absolute;
     height: 64px;
     width: 64px;
@@ -75,19 +83,22 @@ body {
     left: -24px;
     margin-top: 50%;
     top: -34px;
-    transition: 3s cubic-bezier(0, 2, 1, 2);
-}
-
-.circle {
-    position: relative;
-    height: 150px;
-    width: 150px;
-    border-radius: 100px;
+    /*transition: top 3s linear;*/
+    animation: bounce 1.5s infinite;
+    animation-play-state: paused;
 }
 
 .circle:hover .icon {
-    margin-top: 50%;
-    top: -64px;
+    animation-play-state: running;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .circle.circle-river {
